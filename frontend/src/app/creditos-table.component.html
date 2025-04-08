@@ -1,0 +1,35 @@
+<table *ngIf="creditos.length > 0">
+    <thead>
+      <tr>
+        <th>Número Crédito</th>
+        <th>Número NFS-e</th>
+        <th>Data Constituição</th>
+        <th>Valor ISSQN</th>
+        <th>Tipo Crédito</th>
+        <th>Simples Nacional</th>
+        <th>Alíquota</th>
+        <th>Valor Faturado</th>
+        <th>Valor Dedução</th>
+        <th>Base Cálculo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of creditos">
+        <td>{{c.numeroCredito}}</td>
+        <td>{{c.numeroNfse}}</td>
+        <td>{{c.dataConstituicao}}</td>
+        <td>{{c.valorIssqn | currency:'BRL'}}</td>
+        <td>{{c.tipoCredito}}</td>
+        <td>{{c.simplesNacional ? 'Sim' : 'Não'}}</td>
+        <td>{{c.aliquota}}%</td>
+        <td>{{c.valorFaturado | currency:'BRL'}}</td>
+        <td>{{c.valorDeducao | currency:'BRL'}}</td>
+        <td>{{c.baseCalculo | currency:'BRL'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+<div *ngIf="creditos.length === 0" class="sem-resultados">
+  Nenhum crédito encontrado para a busca realizada.
+</div>
+  
